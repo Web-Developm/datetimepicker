@@ -20,7 +20,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } fro
 import { OwlMomentDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 
 export const MY_NATIVE_FORMATS = {
-  parseInt: 'DD-MM-YYYY',
+  parseInt: 'l LT',
   fullPickerInput: 'DD-MM-YYYY LT',
   datePickerInput: 'DD MMMM YYYY',
   timePickerInput: 'LT',
