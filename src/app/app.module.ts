@@ -21,7 +21,7 @@ import { OwlMomentDateTimeModule } from '@danielmoncada/angular-datetime-picker'
 
 export const MY_NATIVE_FORMATS = {
   parseInt: 'DD-MM-YYYY',
-  fullPickerInput: 'l LT',
+  fullPickerInput: 'DD-MM-YYYY LT',
   datePickerInput: 'DD MMMM YYYY',
   timePickerInput: 'LT',
   monthYearLabel: 'MMM YYYY',

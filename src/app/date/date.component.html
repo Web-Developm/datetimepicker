@@ -6,10 +6,10 @@
 <div class="container  pt-5">
   <form [formGroup]="data" class="example-form">
         <mat-form-field appearance="outline" class="example-width">
-          <mat-label>Choose a date</mat-label>
+          <mat-label>Choose a date range</mat-label>
           <input matInput [owlDateTime]="dt1" [selectMode]="'range'">
           <mat-icon matSuffix [owlDateTimeTrigger]="dt1"><i class="far fa-calendar-alt"></i></mat-icon>
-          <owl-date-time [pickerMode]="'dialog'" #dt1></owl-date-time>
+          <owl-date-time #dt1></owl-date-time>
         </mat-form-field>
   </form>
 
