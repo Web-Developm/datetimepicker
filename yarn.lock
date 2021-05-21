@@ -1134,6 +1134,13 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@danielmoncada/angular-datetime-picker@^11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@danielmoncada/angular-datetime-picker/-/angular-datetime-picker-11.0.1.tgz#c0559f3bc7e10bb9f1f586369da0c82246151c67"
+  integrity sha512-KyZQifTR2FLcxu3oJMwBtPooMEBR/E5h624Z1YxMYjWmFPJukuGSvzZfDyayjWvfPLh0dRACgCPmFezgTQMcYA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@discoveryjs/json-ext@0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
