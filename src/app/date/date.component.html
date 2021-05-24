@@ -2,25 +2,61 @@
   <span> Date</span>
 </mat-toolbar>
 
-<div class="container pt-5">
-  <form>
+<div class="form pt-5">
+  <form [formGroup]="data">
     <mat-form-field appearance="outline" class="example-form">
       <mat-label>Satrt Date</mat-label>
-      <input matInput [owlDateTime]="dt2" [selectMode]="'rangeFrom'">
+      <input matInput formControlName="startdate" [owlDateTime]="dt2" [selectMode]="'rangeFrom'">
       <mat-icon matSuffix [owlDateTimeTrigger]="dt2"><i class="far fa-calendar-alt"></i></mat-icon>
       <owl-date-time #dt2></owl-date-time>
     </mat-form-field>
 
+
+
     <mat-form-field appearance="outline" class="example-form">
       <mat-label>End Date</mat-label>
-      <input matInput [owlDateTime]="dt3" [selectMode]="'rangeTo'">
+      <input matInput formControlName="enddate" [owlDateTime]="dt3" [selectMode]="'rangeTo'">
       <mat-icon matSuffix [owlDateTimeTrigger]="dt3"><i class="far fa-calendar-alt"></i></mat-icon>
       <owl-date-time #dt3></owl-date-time>
     </mat-form-field>
   </form>
 
-  <div class="row">
-    <div class="col">
-    </div>
+</div>
+
+<div class="container calendar">
+
+  <button class="previous" (click)="pm()"><i class="fas fa-arrow-left"></i></button>
+  <button class="next" (click)="nm()"><i class="fas fa-arrow-right"></i></button>
+  <div [ngSwitch]="month" class="month">
+    <div *ngSwitchCase="0" class="text-center">January {{year}}</div>
+    <div *ngSwitchCase="1" class="text-center">February {{year}}</div>
+    <div *ngSwitchCase="2" class="text-center">March {{year}}</div>
+    <div *ngSwitchCase="3" class="text-center">April {{year}}</div>
+    <div *ngSwitchCase="4" class="text-center">May {{year}}</div>
+    <div *ngSwitchCase="5" class="text-center">June {{year}}</div>
+    <div *ngSwitchCase="6" class="text-center">July {{year}}</div>
+    <div *ngSwitchCase="7" class="text-center">August {{year}}</div>
+    <div *ngSwitchCase="8" class="text-center">September {{year}}</div>
+    <div *ngSwitchCase="9" class="text-center">October {{year}}</div>
+    <div *ngSwitchCase="10" class="text-center">November {{year}}</div>
+    <div *ngSwitchCase="11" class="text-center">December {{year}}</div>
   </div>
+
+  <table class="table table-bordered">
+    <thead *ngFor="let week1 of week">
+      <tr>
+        <th>{{week1.day1}}</th>
+        <th>{{week1.day2}}</th>
+        <th>{{week1.day3}}</th>
+        <th>{{week1.day4}}</th>
+        <th>{{week1.day5}}</th>
+        <th>{{week1.day6}}</th>
+        <th>{{week1.day7}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <td></td>
+    </tbody>
+  </table>
 </div>

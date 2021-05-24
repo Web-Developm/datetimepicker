@@ -1,10 +1,37 @@
+.form{
+  margin-left:20rem;
+}
+
 .example-form{
   min-width:100px;
   max-width:300px;
-  width:70%;
-  margin-left:12rem;
+  width:60%;
+  margin-left: 1rem;
 }
 
 .example-width{
-  width:65%;
+  width:50%;
+}
+
+.previous{
+  margin-left:15rem;
+}
+
+.next{
+  margin-left:37rem;
+}
+
+.calendar{
+  padding-top: 5rem;
+}
+
+.month{
+  font-size: 30px;
+  padding-bottom: 20px;
+  margin-right:5rem;
+}
+
+table{
+  width:50%;
+  margin-left: 15rem;
 }

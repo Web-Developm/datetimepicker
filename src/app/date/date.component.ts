@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
 
-
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
@@ -14,13 +13,47 @@ export class DateComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  startAt=new Date(2021,0,1,10,30,30);
-  endAt=new Date(2021,3,21,10,30,30);
-
-
   data = this.fb.group({
-    startdate: ['']
+    startdate: [''],
+    enddate: ['']
   });
+
+  d = new Date();
+
+  month:any= this.d.getMonth();
+  year:any = this.d.getFullYear();
+  day = this.d.getDay();
+
+  pm() {
+    this.month = this.month - 1;
+    if(this.month===0)
+    {
+      this.month=11;
+      this.year=this.year-1;
+    }
+  }
+
+  nm()
+  {
+    this.month=this.month+1;
+
+    if(this.month===11)
+    {
+      this.month=0;
+      this.year=this.year+1;
+    }
+  }
+
+
+
+  week: any = [
+    {
+      day1: 'Monday', day2: 'Tuesday', day3: 'Wednesday', day4: 'Thursday', day5: 'Friday', day6: 'Saturday', day7: 'Sunday'
+    }
+  ]
+
+
+
 
   ngOnInit(): void {
   }
