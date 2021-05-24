@@ -14,6 +14,9 @@ export class DateComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  startAt=new Date(2021,0,1,10,30,30);
+  endAt=new Date(2021,3,21,10,30,30);
+
 
   data = this.fb.group({
     startdate: ['']

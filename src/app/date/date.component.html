@@ -2,16 +2,20 @@
   <span> Date</span>
 </mat-toolbar>
 
+<div class="container pt-5">
+  <form>
+    <mat-form-field appearance="outline" class="example-form">
+      <mat-label>Satrt Date</mat-label>
+      <input matInput [owlDateTime]="dt2" [selectMode]="'rangeFrom'">
+      <mat-icon matSuffix [owlDateTimeTrigger]="dt2"><i class="far fa-calendar-alt"></i></mat-icon>
+      <owl-date-time #dt2></owl-date-time>
+    </mat-form-field>
 
-<div class="container  pt-5">
-  <form [formGroup]="data" class="example-form">
-        <mat-form-field appearance="outline" class="example-width">
-          <mat-label>Choose a date range</mat-label>
-          <input matInput [owlDateTime]="dt1" [selectMode]="'range'" formControlName="startdate">
-          <mat-icon matSuffix [owlDateTimeTrigger]="dt1"><i class="far fa-calendar-alt"></i></mat-icon>
-          <owl-date-time [pickerMode]="'dialog'" #dt1></owl-date-time>
-        </mat-form-field>
+    <mat-form-field appearance="outline" class="example-form">
+      <mat-label>End Date</mat-label>
+      <input matInput [owlDateTime]="dt3" [selectMode]="'rangeTo'">
+      <mat-icon matSuffix [owlDateTimeTrigger]="dt3"><i class="far fa-calendar-alt"></i></mat-icon>
+      <owl-date-time #dt3></owl-date-time>
+    </mat-form-field>
   </form>
-
-
 </div>
