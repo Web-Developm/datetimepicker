@@ -21,12 +21,14 @@
     </mat-form-field>
   </form>
 
+
+
 </div>
 
-<div class="container calendar">
+<!--<div class="container calendar">
 
-  <button class="previous" (click)="pm()"><i class="fas fa-arrow-left"></i></button>
-  <button class="next" (click)="nm()"><i class="fas fa-arrow-right"></i></button>
+  <button mat-raised-button color="primary" class="previous" (click)="pm()"><i class="fas fa-arrow-circle-left"></i></button>
+  <button class="next" (click)="nm()"><i class="fas fa-arrow-circle-right"></i></button>
   <div [ngSwitch]="month" class="month">
     <div *ngSwitchCase="0" class="text-center">January {{year}}</div>
     <div *ngSwitchCase="1" class="text-center">February {{year}}</div>
@@ -59,4 +61,41 @@
       <td></td>
     </tbody>
   </table>
+</div>-->
+
+<div class="row text-center">
+  <div class="col md-4">
+    <div class="button">
+      <button mat-stroked-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        Previous
+      </button>
+
+      <button mat-raised-button color="primary" mwlCalendarToday [(viewDate)]="viewDate">
+        Today
+      </button>
+
+      <button mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h3>{{viewDate | calendarDate:(view+'ViewTitle'):'en'}}</h3>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+
+    </div>
+  </div>
 </div>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view #dt2 *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate"></mwl-calendar-month-view>
+</div>
+
+<br>
+<br>
+<button mat-raised-button color="accent">Accent</button>

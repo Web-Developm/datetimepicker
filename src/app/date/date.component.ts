@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
+import { CalendarView } from 'angular-calendar';
+import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours,} from 'date-fns';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-date',
@@ -11,6 +15,15 @@ import { FormControl, FormBuilder } from '@angular/forms';
 
 export class DateComponent implements OnInit {
 
+view:CalendarView=CalendarView.Month;
+
+CalendarView=CalendarView;
+
+viewDate:Date=new Date();
+
+activeDayIsopen:boolean=true;
+
+
   constructor(private fb: FormBuilder) { }
 
   data = this.fb.group({
@@ -20,27 +33,26 @@ export class DateComponent implements OnInit {
 
   d = new Date();
 
-  month:any= this.d.getMonth();
-  year:any = this.d.getFullYear();
+  month: any = this.d.getMonth();
+  year: any = this.d.getFullYear();
   day = this.d.getDay();
+
+
 
   pm() {
     this.month = this.month - 1;
-    if(this.month===0)
-    {
-      this.month=11;
-      this.year=this.year-1;
+    if (this.month === 0) {
+      this.month = 11;
+      this.year = this.year - 1;
     }
   }
 
-  nm()
-  {
-    this.month=this.month+1;
+  nm() {
+    this.month = this.month + 1;
 
-    if(this.month===11)
-    {
-      this.month=0;
-      this.year=this.year+1;
+    if (this.month === 11) {
+      this.month = 0;
+      this.year = this.year + 1;
     }
   }
 
@@ -50,7 +62,18 @@ export class DateComponent implements OnInit {
     {
       day1: 'Monday', day2: 'Tuesday', day3: 'Wednesday', day4: 'Thursday', day5: 'Friday', day6: 'Saturday', day7: 'Sunday'
     }
-  ]
+  ];
+
+
+  closeOpenMonthViewDay()
+  {
+    this.activeDayIsopen=false;
+  }
+
+  setView(view:CalendarView)
+  {
+    this.view=view;
+  }
 
 
 

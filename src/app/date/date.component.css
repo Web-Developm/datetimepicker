@@ -1,5 +1,6 @@
 .form{
   margin-left:20rem;
+  padding-bottom: 50px;
 }
 
 .example-form{
@@ -13,25 +14,13 @@
   width:50%;
 }
 
-.previous{
-  margin-left:15rem;
+h3 {
+  margin: 0 0 10px;
+  font-size: 40px;
+  padding-bottom: 30px;
 }
 
-.next{
-  margin-left:37rem;
-}
-
-.calendar{
-  padding-top: 5rem;
-}
-
-.month{
-  font-size: 30px;
-  padding-bottom: 20px;
-  margin-right:5rem;
-}
-
-table{
-  width:50%;
-  margin-left: 15rem;
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
 }

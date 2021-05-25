@@ -20,6 +20,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } fro
 
 import { OwlMomentDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 
 export const MY_NATIVE_FORMATS = {
@@ -53,7 +56,11 @@ export const MY_NATIVE_FORMATS = {
     MatIconModule,
     MatGridListModule,
     OwlMomentDateTimeModule,
-    MatTableModule
+    MatTableModule,
+    CalendarModule.forRoot({
+      provide:DateAdapter,
+      useFactory:adapterFactory,
+    }),
 
 
   ],
