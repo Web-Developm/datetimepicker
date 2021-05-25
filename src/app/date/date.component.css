@@ -1,13 +1,13 @@
 .form{
-  margin-left:20rem;
+  margin-left:0rem;
   padding-bottom: 50px;
 }
 
 .example-form{
-  min-width:100px;
-  max-width:300px;
-  width:60%;
-  margin-left: 1rem;
+  min-width:250px;
+  max-width:500px;
+  width:100%;
+  margin-left: 2rem;
 }
 
 .example-width{
@@ -23,4 +23,9 @@ h3 {
 pre {
   background-color: #f5f5f5;
   padding: 15px;
+}
+
+.cal-month-view .bg-pink
+ {
+  background-color: hotpink !important;
 }

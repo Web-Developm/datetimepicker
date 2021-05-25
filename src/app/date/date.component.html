@@ -5,28 +5,70 @@
 <div class="form pt-5">
   <form [formGroup]="data">
     <mat-form-field appearance="outline" class="example-form">
-      <mat-label>Satrt Date</mat-label>
-      <input matInput formControlName="startdate" [owlDateTime]="dt2" [selectMode]="'rangeFrom'">
+      <mat-label>Range</mat-label>
+      <input matInput formControlName="startdate" [owlDateTime]="dt2" [selectMode]="'range'">
       <mat-icon matSuffix [owlDateTimeTrigger]="dt2"><i class="far fa-calendar-alt"></i></mat-icon>
-      <owl-date-time #dt2></owl-date-time>
+      <owl-date-time #dt2 [pickerType]="'both'">hello</owl-date-time>
+
     </mat-form-field>
 
 
 
-    <mat-form-field appearance="outline" class="example-form">
-      <mat-label>End Date</mat-label>
-      <input matInput formControlName="enddate" [owlDateTime]="dt3" [selectMode]="'rangeTo'">
-      <mat-icon matSuffix [owlDateTimeTrigger]="dt3"><i class="far fa-calendar-alt"></i></mat-icon>
-      <owl-date-time #dt3></owl-date-time>
-    </mat-form-field>
-  </form>
 
 
+    <div class="row text-center">
 
-</div>
+      <div class="col md-4">
+        <div class="button">
+          <button mat-stroked-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            Previous
+          </button>
+
+          <button mat-raised-button color="primary" mwlCalendarToday [(viewDate)]="viewDate">
+            Today
+          </button>
+
+          <button mat-raised-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            Next
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h3>{{viewDate | calendarDate:(view+'ViewTitle'):'en'}}</h3>
+      </div>
+      <div class="col-md-4">
+        <div class="btn-group">
+
+        </div>
+      </div>
+    </div>
+
+    <div [ngSwitch]="view">
+
+
+      <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]='events'
+        (beforeViewRender)="beforeMonthViewRender($event)"></mwl-calendar-month-view>
+    </div>
+
+    <br>
+    <br>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+
+          </tr>
+        </thead>
+
+      </table>
+    </div>
+
+
 
 <!--<div class="container calendar">
-
   <button mat-raised-button color="primary" class="previous" (click)="pm()"><i class="fas fa-arrow-circle-left"></i></button>
   <button class="next" (click)="nm()"><i class="fas fa-arrow-circle-right"></i></button>
   <div [ngSwitch]="month" class="month">
@@ -42,60 +84,4 @@
     <div *ngSwitchCase="9" class="text-center">October {{year}}</div>
     <div *ngSwitchCase="10" class="text-center">November {{year}}</div>
     <div *ngSwitchCase="11" class="text-center">December {{year}}</div>
-  </div>
-
-  <table class="table table-bordered">
-    <thead *ngFor="let week1 of week">
-      <tr>
-        <th>{{week1.day1}}</th>
-        <th>{{week1.day2}}</th>
-        <th>{{week1.day3}}</th>
-        <th>{{week1.day4}}</th>
-        <th>{{week1.day5}}</th>
-        <th>{{week1.day6}}</th>
-        <th>{{week1.day7}}</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <td></td>
-    </tbody>
-  </table>
-</div>-->
-
-<div class="row text-center">
-  <div class="col md-4">
-    <div class="button">
-      <button mat-stroked-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-        (viewDateChange)="closeOpenMonthViewDay()">
-        Previous
-      </button>
-
-      <button mat-raised-button color="primary" mwlCalendarToday [(viewDate)]="viewDate">
-        Today
-      </button>
-
-      <button mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-        (viewDateChange)="closeOpenMonthViewDay()">
-        Next
-      </button>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <h3>{{viewDate | calendarDate:(view+'ViewTitle'):'en'}}</h3>
-  </div>
-  <div class="col-md-4">
-    <div class="btn-group">
-
-    </div>
-  </div>
-</div>
-
-<div [ngSwitch]="view">
-  <mwl-calendar-month-view #dt2 *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate"></mwl-calendar-month-view>
-</div>
-
-<br>
-<br>
-<button mat-raised-button color="accent">Accent</button>
+  </div>-->

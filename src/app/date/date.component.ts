@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
-import { CalendarView } from 'angular-calendar';
-import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours,} from 'date-fns';
+import { CalendarMonthViewBeforeRenderEvent, CalendarMonthViewDay, CalendarView, CalendarEvent } from 'angular-calendar';
+import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours, } from 'date-fns';
 import { Subject } from 'rxjs';
 
 
@@ -15,13 +15,15 @@ import { Subject } from 'rxjs';
 
 export class DateComponent implements OnInit {
 
-view:CalendarView=CalendarView.Month;
+  view: CalendarView = CalendarView.Month;
 
-CalendarView=CalendarView;
+  CalendarView = CalendarView;
 
-viewDate:Date=new Date();
+  viewDate: Date = new Date();
 
-activeDayIsopen:boolean=true;
+  activeDayIsopen: boolean = true;
+
+  events: CalendarEvent[] = [];
 
 
   constructor(private fb: FormBuilder) { }
@@ -36,6 +38,7 @@ activeDayIsopen:boolean=true;
   month: any = this.d.getMonth();
   year: any = this.d.getFullYear();
   day = this.d.getDay();
+
 
 
 
@@ -65,14 +68,21 @@ activeDayIsopen:boolean=true;
   ];
 
 
-  closeOpenMonthViewDay()
-  {
-    this.activeDayIsopen=false;
+  closeOpenMonthViewDay() {
+    this.activeDayIsopen = false;
   }
 
-  setView(view:CalendarView)
-  {
-    this.view=view;
+  setView(view: CalendarView) {
+    this.view = view;
+  }
+
+  beforeMonthViewRender(renderEvent: CalendarMonthViewBeforeRenderEvent): void {
+    renderEvent.body.forEach((day) => {
+      const dayofMonth = day.date.getDate();
+      if (dayofMonth > 5 && dayofMonth < 10 && day.inMonth) {
+        day.cssClass = 'bg-pink';
+      }
+    })
   }
 
 
